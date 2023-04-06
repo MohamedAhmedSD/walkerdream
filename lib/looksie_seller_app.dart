@@ -8,8 +8,8 @@ class LooksieSellerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const LooksieSellerHomePage(),
+    return const MaterialApp(
+      home:  LooksieSellerHomePage(),
     );
   }
 }

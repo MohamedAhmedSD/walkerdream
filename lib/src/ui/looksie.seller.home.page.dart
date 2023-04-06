@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class LooksieSellerHomePage extends StatefulWidget {
@@ -15,14 +16,13 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _tabController = TabController(
       length: 3,
       vsync: this,
     );
     scrollController
-      ..addListener(() {
+      .addListener(() {
         if (scrollController.offset <= 0.0) {
           offsetZero = true;
         } else {
@@ -43,7 +43,9 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
           NestedScrollView(
             controller: scrollController,
             headerSliverBuilder: (context, isScrolled) {
-              print(isScrolled);
+              if (kDebugMode) {
+                print(isScrolled);
+              }
               return [
                 SliverAppBar(
                   flexibleSpace: FlexibleSpaceBar(
@@ -56,37 +58,37 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
                           decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(4),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                                 image: NetworkImage(
                                   "https://cdn.pixabay.com/photo/2022/07/04/06/25/butterfly-7300501__340.jpg",
                                 ),
                                 fit: BoxFit.cover),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
-                        Text(
+                        const Text(
                           "Ceramic Lovers",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
-                        Text("@ceramic_lovers"),
-                        SizedBox(
+                        const Text("@ceramic_lovers"),
+                        const SizedBox(
                           height: 8,
                         ),
-                        Text(
+                        const Text(
                           '12 followers',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         Container(
@@ -96,7 +98,7 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
                             color: Colors.grey[300],
                             borderRadius: BorderRadius.circular(4),
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Text("Edit profile"),
                           ),
                         )
@@ -106,8 +108,8 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
                   bottom: TabBar(
                     controller: _tabController,
                     labelColor: Colors.black,
-                    indicatorColor: Color.fromRGBO(125, 114, 250, 1),
-                    tabs: [
+                    indicatorColor: const Color.fromRGBO(125, 114, 250, 1),
+                    tabs: const [
                       Tab(text: "Posts"),
                       Tab(
                         text: "Store",
@@ -121,7 +123,7 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
                   pinned: true,
                   // floating: true,
                   backgroundColor: Colors.white,
-                  title: offsetZero ? Text("") : Text("Ceramic Lovers"),
+                  title: offsetZero ? const Text("") : const Text("Ceramic Lovers"),
                   foregroundColor: Colors.black,
                 ),
               ];
@@ -137,7 +139,7 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
                       Column(
                         children: [
                           Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Colors.white,
                             ),
                             child: Column(
@@ -152,19 +154,19 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
                                         decoration: BoxDecoration(
                                           color: Colors.blue,
                                           borderRadius: BorderRadius.circular(4),
-                                          image: DecorationImage(
+                                          image: const DecorationImage(
                                               image: NetworkImage(
                                                 "https://cdn.pixabay.com/photo/2022/07/04/06/25/butterfly-7300501__340.jpg",
                                               ),
                                               fit: BoxFit.cover),
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 8,
                                       ),
                                       Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
+                                        children: const [
                                           Text("Ceramic Lovers"),
                                           SizedBox(
                                             height: 4,
@@ -172,10 +174,10 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
                                           Text("Tue, Mar 23"),
                                         ],
                                       ),
-                                      Spacer(),
+                                      const Spacer(),
                                       IconButton(
                                         onPressed: () {},
-                                        icon: Icon(Icons.more_vert_outlined),
+                                        icon: const Icon(Icons.more_vert_outlined),
                                       ),
                                     ],
                                   ),
@@ -183,7 +185,7 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
                                 SizedBox(
                                   height: 420,
                                   child: Container(
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Colors.red,
                                       image: DecorationImage(
                                           image: NetworkImage(
@@ -196,17 +198,17 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
                                   children: [
                                     IconButton(
                                       onPressed: () {},
-                                      icon: Icon(Icons.favorite),
+                                      icon: const Icon(Icons.favorite),
                                       color: Colors.red,
                                     ),
-                                    Text("100 likes"),
+                                    const Text("100 likes"),
                                     IconButton(
                                       onPressed: () {},
-                                      icon: Icon(
+                                      icon: const Icon(
                                         Icons.chat_bubble_outline_outlined,
                                       ),
                                     ),
-                                    Text("10 comments"),
+                                    const Text("10 comments"),
                                   ],
                                 )
                               ],
@@ -224,15 +226,15 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
                     children: [
                       Container(
                         height: 42,
-                        margin: EdgeInsets.symmetric(
+                        margin: const EdgeInsets.symmetric(
                           horizontal: 12,
                         ),
                         decoration: BoxDecoration(
                           color: Colors.grey[300]!,
                           borderRadius: BorderRadius.circular(24),
                         ),
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        child: TextField(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: const TextField(
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: "Search for products",
@@ -245,7 +247,7 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               "Plant Pots",
                               style: TextStyle(
                                 fontSize: 16,
@@ -254,62 +256,59 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
                             ),
                             IconButton(
                               onPressed: () {},
-                              icon: Icon(Icons.arrow_forward),
+                              icon: const Icon(Icons.arrow_forward),
                             )
                           ],
                         ),
                       ),
                       SizedBox(
                         height: 280,
-                        child: Container(
-                          // color: Colors.blue,
-                          child: ListView.builder(
-                            padding: EdgeInsets.zero,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (_, index) {
-                              return Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                      child: Container(
-                                        width: 180,
-                                        decoration: BoxDecoration(
-                                          color: Colors.pink,
-                                          borderRadius: BorderRadius.circular(4),
-                                          image: DecorationImage(
-                                            image: NetworkImage(
-                                                "https://cdn.pixabay.com/photo/2019/12/08/21/10/potter-4682257__340.jpg"),
-                                            fit: BoxFit.cover,
-                                          ),
+                        child: ListView.builder(
+                          padding: EdgeInsets.zero,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (_, index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      width: 180,
+                                      decoration: BoxDecoration(
+                                        color: Colors.pink,
+                                        borderRadius: BorderRadius.circular(4),
+                                        image: const DecorationImage(
+                                          image: NetworkImage(
+                                              "https://cdn.pixabay.com/photo/2019/12/08/21/10/potter-4682257__340.jpg"),
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
-                                      height: 8,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text("549845616354813"),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(vertical: 8),
-                                          child: Text("Big Plant Pot"),
+                                  ),
+                                  const SizedBox(
+                                    height: 8,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: const [
+                                      Text("549845616354813"),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(vertical: 8),
+                                        child: Text("Big Plant Pot"),
+                                      ),
+                                      Text(
+                                        "KWD 20.990",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                        Text(
-                                          "KWD 20.990",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              );
-                            },
-                          ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ],
@@ -338,7 +337,7 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
             pageIndex = idx;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.home_filled,
@@ -368,9 +367,9 @@ class _LooksieSellerHomePageState extends State<LooksieSellerHomePage> with Tick
       ),
       floatingActionButton: pageIndex == 1 && offsetZero
           ? FloatingActionButton(
-              backgroundColor: Color.fromRGBO(125, 114, 250, 1),
+              backgroundColor: const Color.fromRGBO(125, 114, 250, 1),
               onPressed: () {},
-              child: Icon(Icons.add),
+              child: const Icon(Icons.add),
             )
           : null,
     );
