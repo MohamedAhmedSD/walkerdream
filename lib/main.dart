@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'health_care_mobile_app.dart';
+// import 'health_care_mobile_app.dart';
+import 'src/ui/looksie.seller.home.page.dart';
 //JAICHANGPARK
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HealthcareMobileApp(),
+      home: const LooksieSellerHomePage(),
     );
   }
 }
